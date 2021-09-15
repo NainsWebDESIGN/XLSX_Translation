@@ -1,8 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-
+// Component
 import { AppComponent } from './app.component';
+
+// Service
+// import { xxx } from '@service';
+
+// Pipe
+// import { xxx } from '@pipe';
 
 
 @NgModule({
@@ -10,7 +17,8 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
