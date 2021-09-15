@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 
 // Service
-// import { xxx } from '@service';
+import { FormateService } from '@service';
 
 // Pipe
 // import { xxx } from '@pipe';
@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [FormateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
