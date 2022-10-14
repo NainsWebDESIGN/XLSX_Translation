@@ -1,9 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
+// Router
+import { AppRoutingModule } from './app.routing';
 
 // Component
 import { AppComponent } from './app.component';
+import { ConvertExcelComponent } from './ConvertExcel/ConvertExcel.component';
+import { ConvertJsonComponent } from './ConvertJson/ConvertJson.component';
+import { CompareComponent } from './Compare/Compare.component';
 
 // Service
 import { FormateService } from '@service';
@@ -14,11 +21,16 @@ import { FormateService } from '@service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConvertExcelComponent,
+    ConvertJsonComponent,
+    CompareComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [FormateService],
   bootstrap: [AppComponent]

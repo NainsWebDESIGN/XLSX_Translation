@@ -1,16 +1,9 @@
-轉換名稱(接受Json):
-<br>
-<input type="text" [(ngModel)]="JsForEx">
-<br>
-<a class="file">Json轉Excel
-  <input type="file" name="" id="" (change)="getJSON($event)">
-</a>
-<br><br>
-<br><br>
-轉換名稱(接受Excel):
-<br>
-<input type="text" [(ngModel)]="ExForJs">
-<br>
-<a class="file">Excel轉Json
-  <input type="file" name="" id="" (change)="getExcel($event)">
-</a>
+<header style="margin-bottom: 20px;">
+  <a *ngFor="let item of headerLink;let i = index;" (click)='selectHref(i)'
+    [class]="(headerHref == i) ? 'headerHref active' : 'headerHref'">
+    {{item}}
+  </a>
+</header>
+<section>
+  <router-outlet></router-outlet>
+</section>
