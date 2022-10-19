@@ -1,24 +1,25 @@
-需比較的資料:
+<input type="text" placeholder="存檔名稱" [(ngModel)]="objName">
 <br>
-<input type="text" [(ngModel)]="objOne">
-<select [(ngModel)]="fileName1">
-  <option [value]="'Excel'">Excel</option>
-  <option [value]="'Json'">Json</option>
-</select>
+<br>
+需比較的資料:
 <br>
 <a class="file">上傳檔案
   <input type="file" name="" id="" (change)="Compare($event, 'objOne')">
 </a>
+<select [(ngModel)]="fileName1">
+  <option value="XLSX">Excel</option>
+  <option value="JSON">Json</option>
+</select>
 <br>
 <br>
 被比較的資料:
 <br>
-<input type="text" [(ngModel)]="objTwo">
-<select [(ngModel)]="fileName2">
-  <option [value]="'Excel'">Excel</option>
-  <option [value]="'Json'">Json</option>
-</select>
-<br>
+<!-- <input type="text" [(ngModel)]="objName"> -->
+<!-- <br> -->
 <a class="file">上傳檔案
   <input type="file" name="" id="" (change)="Compare($event, 'objTwo')">
 </a>
+<select [(ngModel)]="fileName2">
+  <option value="XLSX">Excel</option>
+  <option value="JSON">Json</option>
+</select>

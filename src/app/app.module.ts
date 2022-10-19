@@ -13,7 +13,7 @@ import { ConvertJsonComponent } from './ConvertJson/ConvertJson.component';
 import { CompareComponent } from './Compare/Compare.component';
 
 // Service
-import { FormateService } from '@service';
+import { FormateService, Observer } from '@service';
 
 // Pipe
 // import { xxx } from '@pipe';
@@ -32,7 +32,7 @@ import { FormateService } from '@service';
     AppRoutingModule,
     RouterModule
   ],
-  providers: [FormateService],
+  providers: [FormateService, Observer],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
