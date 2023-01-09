@@ -15,10 +15,17 @@ export class ConvertExcelComponent {
     // let data = this.formate.testLangFile('es-mx'),
     //   dataa = this.formate.testLangFile('zh-cn');
     // Observable.forkJoin(data, dataa).subscribe(data => {
-    //   let Filter = {}, esMx = Object.keys(data[0]), zhCn = Object.keys(data[1]);
-    //   zhCn.forEach(item => Filter[item] = (esMx.indexOf(item) >= 0) ? data[0][item] : item)
-    //   let content = new Blob([JSON.stringify(Filter)], { type: "text/plain;charset=utf-8" });
-    //   console.log(Filter, Object.keys(Filter), content);
+    //   let Filter = {}, esMx = Object.keys(data[0]), zhCn = Object.keys(data[1]), testData = [];
+    //   zhCn.forEach(item => {
+    //     if (esMx.indexOf(item) == -1) {
+    //       testData.push(item);
+    //     }
+    //   })
+    //   zhCn.forEach(item => Filter[item] = (esMx.indexOf(item) >= 0) ? data[0][item] : item);
+    //   // let content = new Blob([JSON.stringify(Filter)], { type: "text/plain;charset=utf-8" });
+    //   // console.log(Filter, Object.keys(Filter), content);
+    //   let content = new Blob([JSON.stringify(testData)], { type: "text/plain;charset=utf-8" });
+    //   console.log(testData);
     //   saveAs(content, `es-mx.json`);
     // })
   }
