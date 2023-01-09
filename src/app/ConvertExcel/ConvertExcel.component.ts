@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormateService } from '@service';
+import { Observable } from 'rxjs/Observable';
 import * as XLSX from 'xlsx';
 declare const saveAs: any;
 
@@ -10,7 +11,17 @@ declare const saveAs: any;
 })
 export class ConvertExcelComponent {
   ExForJs: string = null;
-  constructor(private formate: FormateService) { }
+  constructor(private formate: FormateService) {
+    // let data = this.formate.testLangFile('es-mx'),
+    //   dataa = this.formate.testLangFile('zh-cn');
+    // Observable.forkJoin(data, dataa).subscribe(data => {
+    //   let Filter = {}, esMx = Object.keys(data[0]), zhCn = Object.keys(data[1]);
+    //   zhCn.forEach(item => Filter[item] = (esMx.indexOf(item) >= 0) ? data[0][item] : item)
+    //   let content = new Blob([JSON.stringify(Filter)], { type: "text/plain;charset=utf-8" });
+    //   console.log(Filter, Object.keys(Filter), content);
+    //   saveAs(content, `es-mx.json`);
+    // })
+  }
   getExcel(event) {
     /* 連接文件閱讀器 */
     const target: DataTransfer = <DataTransfer>(event.target);
@@ -27,9 +38,9 @@ export class ConvertExcelComponent {
 
       /* 保存數據 */
       let data = (XLSX.utils.sheet_to_json(ws, { header: 1 }));
-      let ExcelData = this.formate.Excel(data);
-
+      let ExcelData = this.formate.XLSX(data);
       let content = new Blob([JSON.stringify(ExcelData)], { type: "text/plain;charset=utf-8" });
+      // console.log(content);
       saveAs(content, `${this.ExForJs}.json`);
       event.target.value = "" // 清空
       this.ExForJs = "";

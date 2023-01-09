@@ -44,10 +44,11 @@ export class CompareComponent implements OnInit {
           array1 = array1.filter(val => array2.indexOf(val) == -1);
           console.log(array1);
           // console.log(array1.join("\n"));
-          let data = this.formate.Json(JSON.parse(array1 as any));
+          // let data = this.formate.Json(JSON.parse(array1 as any));
+          console.log(this.formate[`${!Array.isArray(array1) ? 'JSON' : 'XLSX'}`](array1));
 
           /* 生成工作表 */
-          const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet(data);
+          const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet(array1);
 
           /* 生成工作簿並添加工作表 */
           const wb: XLSX.WorkBook = XLSX.utils.book_new();
@@ -96,35 +97,13 @@ export class CompareComponent implements OnInit {
 
       /* 保存數據 */
       let data = (XLSX.utils.sheet_to_json(ws, { header: 1 }));
-      // let ExcelData = this.formate.Excel(data);
       this.observer.changeObj(finalData, data);
-      // let content = new Blob([JSON.stringify(ExcelData)], { type: "text/plain;charset=utf-8" });
-      // saveAs(content, `${this.objOne}.json`);
-      // event.target.value = "" // 清空
-      // this.objOne = null;
     };
   }
   getJSON(event: any, finalData: string) {
     let file = event.target.files[0], fileReader = new FileReader();
     fileReader.readAsText(file, "UTF-8");
     fileReader.onerror = err => console.log(err);
-    fileReader.onload = () => {
-      // console.log(JSON.parse(fileReader.result as any));
-      this.observer.changeObj(finalData, JSON.parse(fileReader.result as any));
-      // let data = this.formate.Json(JSON.parse(fileReader.result as any));
-
-      // /* 生成工作表 */
-      // const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet(data);
-
-      // /* 生成工作簿並添加工作表 */
-      // const wb: XLSX.WorkBook = XLSX.utils.book_new();
-      // XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-
-      /* 保存到文件 */
-      // XLSX.writeFile(wb, `${this.objTwo}.xlsx`);
-
-      // event.target.value = "" // 清空
-      // this.objTwo = null;
-    }
+    fileReader.onload = () => this.observer.changeObj(finalData, JSON.parse(fileReader.result as any))
   }
 }

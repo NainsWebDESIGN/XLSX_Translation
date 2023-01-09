@@ -15,7 +15,7 @@ export class ConvertJsonComponent {
     fileReader.readAsText(file, "UTF-8");
     fileReader.onload = () => {
 
-      let data = this.formate.Json(JSON.parse(fileReader.result as any));
+      let data = this.formate.JSON(JSON.parse(fileReader.result as any));
 
       /* 生成工作表 */
       const ws: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet(data);
